@@ -275,5 +275,34 @@ document.addEventListener("DOMContentLoaded", function() {
 
 
 
+function te(){
+    if ("geolocation" in navigator) {
+        // Check if the user has granted permission to access their location
+        navigator.permissions.query({ name: 'geolocation' }).then((result) => {
+          if (result.state === 'granted') {
+            // Location is enabled
+            console.log('Location is enabled');
+          } else if (result.state === 'prompt') {
+            // Location is not enabled, but the user hasn't been asked yet
+            console.log('Location is not enabled, but the user hasn\'t been asked yet');
+          } else if (result.state === 'denied') {
+            // Location is not enabled, and the user has denied permission
+            console.log('Location is not enabled, and the user has denied permission');
+          }
+        });
+      } else {
+        // Geolocation is not supported
+        console.log('Geolocation is not supported');
+      }
+
+    }
+
+    
+
+    te();
+
+
+
+
 
 
